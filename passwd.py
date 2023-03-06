@@ -4,7 +4,7 @@
 import random
 import string
 import time
-from colorama import Fore
+from colorama import Fore, init
 
 
 def header():
@@ -32,7 +32,14 @@ def create_pass(new):
 
     response = "".join(passwd)
     return response
+while True:
+    new = input("Presione enter para generar una contraseña: ")
+    if new == "":
+        break
+    else:
+        print(Fore.RED + "Por favor, pulse enter para generar la contraseña\n")    
 
-new = input("Presione enter para generar una contraseña: ")    
 my_pass = create_pass(new)
-print("\nContraseña: ",Fore.GREEN+my_pass)
+print("\nContraseña: ", Fore.GREEN+my_pass)
+
+init(autoreset=True)
